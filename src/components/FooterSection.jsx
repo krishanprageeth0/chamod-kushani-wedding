@@ -48,10 +48,10 @@ export default function FooterSection() {
           {/* Company Contact */}
           <a
             href="tel:0701379291"
-            className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full border border-gold/20 bg-[#1f060f] text-[9px] md:text-[10px] font-montserrat tracking-[0.2em] text-gold/85 hover:text-gold hover:border-gold/50 transition-all"
+            className="inline-flex items-center gap-1.5 mt-2 px-3.5 py-1 rounded-full border border-gold/25 bg-[#1f060f] text-[9px] md:text-[10px] font-montserrat tracking-[0.18em] text-gold/90 hover:text-gold hover:border-gold/60 transition-all"
           >
             <Phone className="w-2.5 h-2.5 text-gold" />
-            <span>070 137 9291</span>
+            <span>Developer Contact: 070 137 9291</span>
           </a>
         </div>
       </div>
