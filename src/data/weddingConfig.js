@@ -122,6 +122,6 @@ export const weddingConfig = {
   },
 
   // Google Sheets Webhook configuration
-  // Replace with your Google Apps Script URL (instructions in GOOGLE_SHEETS_SETUP.md)
-  googleSheetScriptUrl: ""
+  // Auto-logs guest RSVPs directly to Chamod & Kushani Wedding RSVPs spreadsheet
+  googleSheetScriptUrl: "https://script.google.com/macros/s/AKfycbwqcUOHe01GjRp-g4fUVqISr3zoL_iQDBrnAY6EtZWdXC2y0jqUyR4Y9j_GD1NZSvh-7w/exec"
 };
