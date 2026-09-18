@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-maroon-950 text-ivory overflow-x-hidden font-montserrat;
+  }
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0e0305;
+}
+::-webkit-scrollbar-thumb {
+  background: #520e1e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #85182a;
+}
+
+/* Luxury Gold & Crimson Gradients */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #fdf3c7 0%, #d4af37 50%, #aa7c11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.crimson-text-gradient {
+  background: linear-gradient(135deg, #fca5a5 0%, #e25f38 30%, #85182a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, #936916, #d4af37, #fdf3c7, #d4af37, #936916) 1;
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+.crimson-glow {
+  box-shadow: 0 0 30px rgba(133, 24, 42, 0.4);
+}
+
+/* 3D Envelope Transformations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.4) translateY(0);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.2) translateY(-6px);
+  }
+}
+
+@keyframes leafSway {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(3deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(-2deg) scale(0.99);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
