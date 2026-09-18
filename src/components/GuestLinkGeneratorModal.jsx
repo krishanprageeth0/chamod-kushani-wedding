@@ -26,11 +26,18 @@ export default function GuestLinkGeneratorModal({ isOpen, onClose }) {
   const whatsappMessage = `Dear ${cleanName || 'Friend'},\n\nWe cordially invite you to celebrate the wedding union of Chamod & Kushani on Saturday, 17th October 2026 at Summerfield Hotel.\n\nPlease open your personalized invitation card below:\n${generatedUrl}`;
   const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)}`;
 
-  const applyPreset = (prefix) => {
-    if (!guestName) {
-      setGuestName(`${prefix} `);
+  const applyPreset = (tag) => {
+    if (tag === 'Family') {
+      if (!guestName.trim()) {
+        setGuestName('Family ');
+      } else if (!guestName.toLowerCase().includes('family')) {
+        setGuestName(`${guestName.trim()} & Family`);
+      }
     } else {
-      setGuestName(`${prefix} ${guestName}`);
+      const cleanExisting = guestName
+        .replace(/^(Mr\s*&\s*Miss|Mr\s*&\s*Mrs|Mr|Miss|Mrs)\s*/i, '')
+        .trim();
+      setGuestName(cleanExisting ? `${tag} ${cleanExisting}` : `${tag} `);
     }
   };
 
@@ -75,7 +82,7 @@ export default function GuestLinkGeneratorModal({ isOpen, onClose }) {
                 type="text"
                 value={guestName}
                 onChange={(e) => setGuestName(e.target.value)}
-                placeholder="e.g. Mr. & Mrs. Perera OR Kasun & Family"
+                placeholder="e.g. Mr Kasun OR Mr & Miss Perera"
                 className="w-full bg-[#270814] border border-gold/40 rounded-xl px-4 py-3 text-[#fdfbf7] placeholder-[#f0ebe0]/30 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold text-sm font-montserrat"
               />
               {guestName && (
@@ -91,12 +98,12 @@ export default function GuestLinkGeneratorModal({ isOpen, onClose }) {
             {/* Quick Presets */}
             <div className="flex flex-wrap gap-1.5 mt-2.5">
               <span className="text-[10px] font-montserrat text-gold/60 mr-1 self-center">Presets:</span>
-              {['Mr. & Mrs.', '& Family', 'Dr.', 'Rev.'].map((tag) => (
+              {['Mr', 'Miss', 'Mr & Miss', 'Family'].map((tag) => (
                 <button
                   key={tag}
                   type="button"
                   onClick={() => applyPreset(tag)}
-                  className="text-[10px] font-montserrat px-2 py-0.5 rounded-full border border-gold/25 bg-[#1b050d] text-gold/80 hover:border-gold hover:text-gold transition-colors"
+                  className="text-[10px] font-montserrat px-2.5 py-1 rounded-full border border-gold/25 bg-[#1b050d] text-gold/85 hover:border-gold hover:text-gold hover:bg-gold/10 transition-colors cursor-pointer"
                 >
                   +{tag}
                 </button>
