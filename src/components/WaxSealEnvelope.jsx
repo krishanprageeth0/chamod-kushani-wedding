@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import confetti from 'canvas-confetti';
 import { BotanicalCorner } from './KnexaElements';
 import { weddingConfig } from '../data/weddingConfig';
 
@@ -21,36 +20,11 @@ export default function WaxSealEnvelope({ onOpen }) {
     if (isOpening) return;
     setIsOpening(true);
 
-    // Exact Knexa Confetti Cannon at 400ms
-    setTimeout(() => {
-      const endTime = Date.now() + 1000;
-      const colors = ["#85182a", "#c9a96e", "#e8c87a", "#b87d6c", "#ffffff", "#550b18"];
-      (function frame() {
-        confetti({
-          particleCount: 6,
-          angle: 60,
-          spread: 60,
-          origin: { x: 0, y: 0.8 },
-          colors: colors
-        });
-        confetti({
-          particleCount: 6,
-          angle: 120,
-          spread: 60,
-          origin: { x: 1, y: 0.8 },
-          colors: colors
-        });
-        if (Date.now() < endTime) {
-          requestAnimationFrame(frame);
-        }
-      })();
-    }, 400);
-
-    // Smooth exit and reveal main invitation at 2000ms
+    // Smooth exit and reveal main invitation at 1700ms
     setTimeout(() => {
       setIsClosed(true);
       onOpen();
-    }, 2000);
+    }, 1700);
   };
 
   return (
