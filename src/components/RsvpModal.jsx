@@ -19,9 +19,13 @@ export default function RsvpModal({ isOpen, onClose }) {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const guest = params.get('guest') || params.get('to');
+    const guest = params.get('guest') || params.get('to') || params.get('name') || params.get('n');
     if (guest && !formData.fullName) {
-      setFormData(prev => ({ ...prev, fullName: decodeURIComponent(guest) }));
+      try {
+        setFormData(prev => ({ ...prev, fullName: decodeURIComponent(guest).replace(/\+/g, ' ') }));
+      } catch (e) {
+        setFormData(prev => ({ ...prev, fullName: guest.replace(/\+/g, ' ') }));
+      }
     }
   }, []);
 

@@ -1,8 +1,11 @@
-import React from 'react';
-import { Phone } from 'lucide-react';
+import React, { useState } from 'react';
+import { Phone, Sparkles } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
+import GuestLinkGeneratorModal from './GuestLinkGeneratorModal';
 
 export default function FooterSection() {
+  const [isGeneratorOpen, setIsGeneratorOpen] = useState(false);
+
   return (
     <footer className="relative py-16 px-4 bg-gradient-to-b from-[#140409] via-[#1a080d] to-[#0e0406] border-t border-gold/25 text-center select-none overflow-hidden">
       {/* Top Gold Ambient Glow */}
@@ -20,6 +23,17 @@ export default function FooterSection() {
           <div className="h-[1px] w-10 bg-gradient-to-r from-transparent to-gold/60" />
           <div className="w-1.5 h-1.5 rotate-45 border border-gold bg-[#85182a]" />
           <div className="h-[1px] w-10 bg-gradient-to-l from-transparent to-gold/60" />
+        </div>
+
+        {/* VIP Guest Invite Link Generator for Couple / Client */}
+        <div className="mb-6">
+          <button
+            onClick={() => setIsGeneratorOpen(true)}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 bg-gradient-to-r from-[#2a0715] via-[#3d0a1e] to-[#2a0715] text-[10px] md:text-[11px] font-montserrat uppercase tracking-[0.2em] text-gold hover:border-gold hover:brightness-125 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.6)] cursor-pointer"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-gold" />
+            <span>Generate Guest Link</span>
+          </button>
         </div>
 
         {/* Powered by Knexa System */}
@@ -41,6 +55,12 @@ export default function FooterSection() {
           </a>
         </div>
       </div>
+
+      {/* Generator Modal */}
+      <GuestLinkGeneratorModal 
+        isOpen={isGeneratorOpen} 
+        onClose={() => setIsGeneratorOpen(false)} 
+      />
     </footer>
   );
 }

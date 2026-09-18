@@ -9,9 +9,13 @@ export default function HeroSection({ onOpenRsvp }) {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const name = params.get('guest') || params.get('to');
+    const name = params.get('guest') || params.get('to') || params.get('name') || params.get('n');
     if (name) {
-      setGuestName(decodeURIComponent(name));
+      try {
+        setGuestName(decodeURIComponent(name).replace(/\+/g, ' '));
+      } catch (e) {
+        setGuestName(name.replace(/\+/g, ' '));
+      }
     }
   }, []);
 
@@ -54,11 +58,15 @@ export default function HeroSection({ onOpenRsvp }) {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-4 px-5 py-1.5 rounded-full border border-gold/40 bg-[#240813] shadow-md"
+            transition={{ delay: 0.15, duration: 0.8 }}
+            className="mb-5 px-6 py-2 rounded-full border border-gold/50 bg-gradient-to-r from-[#280816] via-[#3a0c1e] to-[#280816] shadow-[0_4px_25px_rgba(0,0,0,0.9)] flex flex-col items-center"
           >
-            <p className="text-gold text-xs font-montserrat uppercase tracking-[0.25em]">
-              Special Invitation For <span className="font-semibold text-white">{guestName}</span>
-            </p>
+            <span className="text-gold font-cormorant tracking-[0.32em] text-[10px] uppercase font-semibold">
+              Special Invitation For
+            </span>
+            <span className="text-[#fdfbf7] font-cinzel text-base md:text-lg font-bold tracking-[0.12em] mt-0.5">
+              {guestName}
+            </span>
           </motion.div>
         )}
 

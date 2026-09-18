@@ -10,9 +10,13 @@ export default function WaxSealEnvelope({ onOpen }) {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const name = params.get('guest') || params.get('to');
+    const name = params.get('guest') || params.get('to') || params.get('name') || params.get('n');
     if (name) {
-      setGuestName(decodeURIComponent(name));
+      try {
+        setGuestName(decodeURIComponent(name).replace(/\+/g, ' '));
+      } catch (e) {
+        setGuestName(name.replace(/\+/g, ' '));
+      }
     }
   }, []);
 
@@ -72,15 +76,31 @@ export default function WaxSealEnvelope({ onOpen }) {
           ))}
 
           {/* Header Texts */}
-          <div className="relative z-10 flex flex-col items-center text-center max-w-sm mb-8 mt-12">
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 1 }}
-              className="text-[#f0ebe0]/75 font-cormorant tracking-[0.32em] text-[10px] md:text-[11px] uppercase mb-4"
-            >
-              {guestName ? `Special Invitation For ${guestName}` : "You Have an Invitation From"}
-            </motion.p>
+          <div className="relative z-10 flex flex-col items-center text-center max-w-sm mb-6 mt-8">
+            {guestName ? (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 1 }}
+                className="mb-4 px-6 py-2 rounded-full border border-gold/50 bg-gradient-to-r from-[#280816] via-[#3a0c1e] to-[#280816] shadow-[0_4px_25px_rgba(0,0,0,0.9)] flex flex-col items-center"
+              >
+                <span className="text-gold font-cormorant tracking-[0.32em] text-[10px] uppercase font-semibold">
+                  Special Invitation For
+                </span>
+                <span className="text-[#fdfbf7] font-cinzel text-base md:text-lg font-bold tracking-[0.12em] mt-0.5">
+                  {guestName}
+                </span>
+              </motion.div>
+            ) : (
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 1 }}
+                className="text-[#f0ebe0]/75 font-cormorant tracking-[0.32em] text-[10px] md:text-[11px] uppercase mb-4"
+              >
+                You Have an Invitation From
+              </motion.p>
+            )}
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -224,8 +244,8 @@ export default function WaxSealEnvelope({ onOpen }) {
                 <text x="150" y="42" textAnchor="middle" fill="#85182a" fontFamily="'Mea Culpa', cursive" fontSize="24">
                   Chamod &amp; Kushani
                 </text>
-                <text x="150" y="58" textAnchor="middle" fill="#785918" fontFamily="'Cinzel', serif" fontSize="6.5" letterSpacing="0.25em" fontWeight="bold">
-                  TOGETHER WITH THEIR FAMILIES
+                <text x="150" y="58" textAnchor="middle" fill="#785918" fontFamily="'Cinzel', serif" fontSize={guestName ? (guestName.length > 22 ? "5" : "6.5") : "6.5"} letterSpacing="0.2em" fontWeight="bold">
+                  {guestName ? `WARMLY INVITING ${guestName.toUpperCase()}` : "TOGETHER WITH THEIR FAMILIES"}
                 </text>
                 <text x="150" y="70" textAnchor="middle" fill="#85182a" fontFamily="'Cinzel', serif" fontSize="7" letterSpacing="0.2em" fontWeight="bold">
                   INVITE YOU TO CELEBRATE
