@@ -20,8 +20,8 @@ export default function HeroSection({ onOpenRsvp }) {
   }, []);
 
   const getGoogleCalendarUrl = () => {
-    const title = encodeURIComponent("Wedding of Chamod & Kushani");
-    const details = encodeURIComponent("Celebrating the wedding union of Chamod Pathegama Widanagamage & Kushani Amarasinghe at Summerfield Hotel.");
+    const title = encodeURIComponent("Wedding of Kushani & Chamod");
+    const details = encodeURIComponent("Celebrating the wedding union of Kushani Amarasinghe & Chamod Pathegama Widanagamage at Summerfield Hotel.");
     const location = encodeURIComponent(weddingConfig.venue.address);
     const dates = "20261017T123000Z/20261017T183000Z";
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
@@ -88,7 +88,7 @@ export default function HeroSection({ onOpenRsvp }) {
             transition={{ duration: 1.4, ease: "easeOut", delay: 0.35 }}
             className="text-[#f0ebe0] text-7xl md:text-8xl font-mea font-normal leading-[0.8] my-0 drop-shadow-[0_4px_12px_rgba(0,0,0,0.7)]"
           >
-            {weddingConfig.groom.shortName}
+            {weddingConfig.bride.shortName}
           </motion.h1>
 
           <motion.p
@@ -106,7 +106,7 @@ export default function HeroSection({ onOpenRsvp }) {
             transition={{ duration: 1.4, ease: "easeOut", delay: 0.5 }}
             className="text-[#f0ebe0] text-7xl md:text-8xl font-mea font-normal leading-[0.8] my-0 drop-shadow-[0_4px_12px_rgba(0,0,0,0.7)]"
           >
-            {weddingConfig.bride.shortName}
+            {weddingConfig.groom.shortName}
           </motion.h1>
         </div>
 

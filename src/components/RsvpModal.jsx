@@ -133,7 +133,7 @@ export default function RsvpModal({ isOpen, onClose }) {
                 Thank you for confirming. Knexa System has successfully registered your response!
               </p>
               <p className="text-xs text-[#fdfbf7]/60 font-cormorant leading-relaxed mt-2">
-                We look forward to celebrating this celestial union of Chamod &amp; Kushani with you on Saturday, October 17, 2026.
+                We look forward to celebrating this celestial union of Kushani &amp; Chamod with you on Saturday, October 17, 2026.
               </p>
             </div>
 

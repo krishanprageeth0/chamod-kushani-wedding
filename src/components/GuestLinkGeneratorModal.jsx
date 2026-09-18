@@ -23,7 +23,7 @@ export default function GuestLinkGeneratorModal({ isOpen, onClose }) {
     setTimeout(() => setCopied(false), 2200);
   };
 
-  const whatsappMessage = `Dear ${cleanName || 'Friend'},\n\nWe cordially invite you to celebrate the wedding union of Chamod & Kushani on Saturday, 17th October 2026 at Summerfield Hotel.\n\nPlease open your personalized invitation card below:\n${generatedUrl}`;
+  const whatsappMessage = `Dear ${cleanName || 'Friend'},\n\nWe cordially invite you to celebrate the wedding union of Kushani & Chamod on Saturday, 17th October 2026 at Summerfield Hotel.\n\nPlease open your personalized invitation card below:\n${generatedUrl}`;
   const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)}`;
 
   const applyPreset = (tag) => {

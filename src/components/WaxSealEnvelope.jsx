@@ -108,7 +108,7 @@ export default function WaxSealEnvelope({ onOpen }) {
               transition={{ delay: 0.25, duration: 1.1 }}
               className="text-[#f0ebe0] text-5xl md:text-6xl font-mea font-normal leading-[0.85] my-0 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
             >
-              {weddingConfig.groom.shortName}
+              {weddingConfig.bride.shortName}
             </motion.h1>
 
             <motion.p
@@ -126,7 +126,7 @@ export default function WaxSealEnvelope({ onOpen }) {
               transition={{ delay: 0.55, duration: 1.1 }}
               className="text-[#f0ebe0] text-5xl md:text-6xl font-mea font-normal leading-[0.85] my-0 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
             >
-              {weddingConfig.bride.shortName}
+              {weddingConfig.groom.shortName}
             </motion.h1>
           </div>
 
@@ -242,7 +242,7 @@ export default function WaxSealEnvelope({ onOpen }) {
                 
                 {/* Card Header & Monogram */}
                 <text x="150" y="42" textAnchor="middle" fill="#85182a" fontFamily="'Mea Culpa', cursive" fontSize="24">
-                  Chamod &amp; Kushani
+                  Kushani &amp; Chamod
                 </text>
                 <text x="150" y="58" textAnchor="middle" fill="#785918" fontFamily="'Cinzel', serif" fontSize={guestName ? (guestName.length > 22 ? "5" : "6.5") : "6.5"} letterSpacing="0.2em" fontWeight="bold">
                   {guestName ? `WARMLY INVITING ${guestName.toUpperCase()}` : "TOGETHER WITH THEIR FAMILIES"}
@@ -297,7 +297,7 @@ export default function WaxSealEnvelope({ onOpen }) {
                 <rect x="125" y="75" width="50" height="50" rx="13" fill="url(#sealShine)" transform="rotate(-8,150,100)" />
                 {/* Inner Ring */}
                 <rect x="131" y="81" width="38" height="38" rx="10" fill="none" stroke="rgba(50,25,0,0.35)" strokeWidth="1" transform="rotate(-8,150,100)" />
-                {/* C&K Monogram Text */}
+                {/* K&C Monogram Text */}
                 <text
                   x="149"
                   y="106"
@@ -308,7 +308,7 @@ export default function WaxSealEnvelope({ onOpen }) {
                   letterSpacing="0.05em"
                   fontWeight="bold"
                 >
-                  C&amp;K
+                  K&amp;C
                 </text>
               </motion.g>
             </svg>

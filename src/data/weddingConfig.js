@@ -11,8 +11,8 @@ export const weddingConfig = {
     phone: "+94 71 000 0000",
     displayPhone: "071 000 0000"
   },
-  monogram: "C & K",
-  sealInitials: "C&K",
+  monogram: "K & C",
+  sealInitials: "K&C",
   eventDate: "Saturday, October 17, 2026",
   eventTime: "6:00 PM Onwards",
   eventTimestamp: "2026-10-17T18:00:00+05:30",
@@ -37,7 +37,7 @@ export const weddingConfig = {
     {
       time: "06:30 PM",
       title: "Grand Couple Entry",
-      description: "The grand entrance of Chamod & Kushani to begin their magical celebration together.",
+      description: "The grand entrance of Kushani & Chamod to begin their magical celebration together.",
       icon: "HeartHandshake",
       color: "from-gold to-palette-coral"
     },

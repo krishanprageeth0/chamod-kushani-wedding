@@ -83,7 +83,7 @@ export default function RomanticQuoteSection() {
 
           {/* Decorative subtle background watermark */}
           <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
-            <span className="font-mea text-[140px] text-white">C &amp; K</span>
+            <span className="font-mea text-[140px] text-white">K &amp; C</span>
           </div>
 
           {/* Heartwarming Romantic Words */}
@@ -120,7 +120,7 @@ export default function RomanticQuoteSection() {
               className="pt-4 flex flex-col items-center"
             >
               <span className="font-mea text-4xl md:text-5xl text-gold drop-shadow-[0_2px_10px_rgba(212,175,55,0.4)]">
-                {weddingConfig.groom.shortName} &amp; {weddingConfig.bride.shortName}
+                {weddingConfig.bride.shortName} &amp; {weddingConfig.groom.shortName}
               </span>
               <span className="font-cormorant text-xs md:text-sm tracking-[0.3em] uppercase text-gold-light/70 mt-1 font-medium">
                 17 • October • 2026

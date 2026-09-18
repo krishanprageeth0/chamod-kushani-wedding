@@ -15,7 +15,7 @@ export default function FooterSection() {
       <div className="max-w-md mx-auto flex flex-col items-center justify-center relative z-10">
         {/* Names & Date */}
         <p className="text-[11px] md:text-xs font-montserrat tracking-[0.35em] uppercase text-[#f0ebe0]/75 leading-relaxed font-semibold">
-          CHAMOD &amp; KUSHANI • 17 OCTOBER 2026
+          KUSHANI &amp; CHAMOD • 17 OCTOBER 2026
         </p>
 
         {/* Small Gold Divider Line with Center Diamond */}
